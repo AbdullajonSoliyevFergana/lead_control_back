@@ -1,0 +1,806 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "LEAD CONTROL API",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/admin/registration": {
+            "post": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Register admin/operator",
+                "operationId": "38178cb84f8cc67dc37d09fac0f6e122",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "role": {
+                                        "type": "string",
+                                        "example": "operator"
+                                    },
+                                    "login": {
+                                        "type": "string",
+                                        "example": "998994630613"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration admin and to login.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": null
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Added successfully!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/login": {
+            "post": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Login admin/operator",
+                "operationId": "73502e033d895d7a98710fdedb3c2b3b",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "type": "string",
+                                        "example": "998994630613"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Check admin **login** & **password** and to login.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "id": 2,
+                                                "admin_socket_id": null,
+                                                "login": "998994630613",
+                                                "password": "$2y$10$veIbPHbXbOknIz1qHRhNze3mIOI2DmX4jcJWupT96tA3vK8XAIZ5q",
+                                                "token": "XsfiFH57c8AdWSC9EzquHWAkPPKnQS",
+                                                "role": "operator",
+                                                "status": "active",
+                                                "created_at": "2024-01-12T09:13:46.000000Z",
+                                                "updated_at": "2024-01-12T09:17:38.000000Z"
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Welcome!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/get": {
+            "get": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Get admin/operator",
+                "operationId": "593fa647e2d566b0e27fba408d999ded",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Check admin **token** and get this admin.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "id": 2,
+                                                "admin_socket_id": null,
+                                                "login": "998994630613",
+                                                "password": "$2y$10$veIbPHbXbOknIz1qHRhNze3mIOI2DmX4jcJWupT96tA3vK8XAIZ5q",
+                                                "token": "XsfiFH57c8AdWSC9EzquHWAkPPKnQS",
+                                                "role": "operator",
+                                                "status": "active",
+                                                "created_at": "2024-01-12T09:13:46.000000Z",
+                                                "updated_at": "2024-01-12T09:17:38.000000Z"
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": ""
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/list": {
+            "post": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Get admin list",
+                "operationId": "8cb7c97ab495c951a8fe8f7444df9c13",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "word": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "page": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Check admin **token** and get admin list.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "total_count": 1,
+                                                "page": 1,
+                                                "limit": 15,
+                                                "items": [
+                                                    {
+                                                        "id": 2,
+                                                        "admin_socket_id": null,
+                                                        "login": "998994630613",
+                                                        "password": "$2y$10$veIbPHbXbOknIz1qHRhNze3mIOI2DmX4jcJWupT96tA3vK8XAIZ5q",
+                                                        "token": "wj8yLsFAoyWcXwdkR1gUHht16PCwsh",
+                                                        "role": "operator",
+                                                        "status": "active",
+                                                        "created_at": "2024-01-12T09:13:46.000000Z",
+                                                        "updated_at": "2024-01-12T09:20:33.000000Z"
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": ""
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/detail/{admin_id}": {
+            "get": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Get detail admin/operator",
+                "operationId": "981a81167f684a7ab1420f5c86fb3dd7",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "admin_id",
+                        "in": "path",
+                        "description": "Paste admin id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Check admin **token** and get detail admin.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "id": 2,
+                                                "admin_socket_id": null,
+                                                "login": "998994630613",
+                                                "password": "$2y$10$veIbPHbXbOknIz1qHRhNze3mIOI2DmX4jcJWupT96tA3vK8XAIZ5q",
+                                                "token": "XsfiFH57c8AdWSC9EzquHWAkPPKnQS",
+                                                "role": "operator",
+                                                "status": "active",
+                                                "created_at": "2024-01-12T09:13:46.000000Z",
+                                                "updated_at": "2024-01-12T09:17:38.000000Z"
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": ""
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/update/{admin_id}": {
+            "post": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Update admin/operator",
+                "operationId": "bcba6c2aa55d3585f49982b9f74d05ab",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "admin_id",
+                        "in": "path",
+                        "description": "Paste admin id",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "login": {
+                                        "type": "string",
+                                        "example": "998994630613"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "123456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration admin and to login.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": null
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Update successfully!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/admin/delete/{admin_id}": {
+            "get": {
+                "tags": [
+                    "Admin API"
+                ],
+                "summary": "Delete admin/operator",
+                "operationId": "c79acacb97a7d382f2fa020166fd3d44",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "admin_id",
+                        "in": "path",
+                        "description": "Paste admin id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Check admin **token** and delete admin.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": null
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Delete successfully!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lead/add": {
+            "post": {
+                "tags": [
+                    "Lead API"
+                ],
+                "summary": "Add new lead",
+                "operationId": "5bcb4c4e077e8a79e93a5e9dc15d4897",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "example": "998994630613"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add new lead",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": null
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Added successfully!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lead/list": {
+            "post": {
+                "tags": [
+                    "Lead API"
+                ],
+                "summary": "List lead",
+                "operationId": "ddd431610eac4620a6fbe5f6306aeaa6",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List lead",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "new_lead": [],
+                                                "my_lead": [
+                                                    {
+                                                        "id": 1,
+                                                        "admin_id": 3,
+                                                        "phone": "998994630613",
+                                                        "comment": null,
+                                                        "status": "my",
+                                                        "position": "active",
+                                                        "created_at": null,
+                                                        "updated_at": "2024-01-12T11:00:33.000000Z"
+                                                    },
+                                                    {
+                                                        "id": 2,
+                                                        "admin_id": 3,
+                                                        "phone": "998994630614",
+                                                        "comment": null,
+                                                        "status": "my",
+                                                        "position": "active",
+                                                        "created_at": null,
+                                                        "updated_at": "2024-01-12T11:07:15.000000Z"
+                                                    }
+                                                ],
+                                                "recall_lead": [],
+                                                "didntpickup_lead": [],
+                                                "coming_lead": []
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": ""
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lead/detail/{id}": {
+            "get": {
+                "tags": [
+                    "Lead API"
+                ],
+                "summary": "Get detail lead",
+                "operationId": "942f7f23c63afe56f5e7740026226446",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Paste lead id",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Check admin **token** and get detail lead.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": {
+                                                "id": 2,
+                                                "admin_id": 3,
+                                                "phone": "998994630614",
+                                                "comment": null,
+                                                "status": "my",
+                                                "position": "active",
+                                                "created_at": null,
+                                                "updated_at": "2024-01-12T11:07:15.000000Z"
+                                            }
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": ""
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lead/change": {
+            "post": {
+                "tags": [
+                    "Lead API"
+                ],
+                "summary": "Change lead",
+                "operationId": "4c6c16306d47502970af0a53780b19e4",
+                "parameters": [
+                    {
+                        "name": "Token",
+                        "in": "header",
+                        "description": "Admin token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "lead_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "to_status": {
+                                        "type": "string",
+                                        "example": "my"
+                                    },
+                                    "comment": {
+                                        "type": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Change lead",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        },
+                                        "data": {
+                                            "description": "data",
+                                            "format": "object",
+                                            "example": null
+                                        },
+                                        "message": {
+                                            "description": "message",
+                                            "format": "string",
+                                            "default": "Changed successfully!"
+                                        },
+                                        "error_code": {
+                                            "description": "error_code",
+                                            "format": "integer",
+                                            "default": "0"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
