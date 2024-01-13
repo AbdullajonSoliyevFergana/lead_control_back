@@ -62,7 +62,7 @@ class LeadController extends Controller
         ]);
         try {
             $client = new GuzzleHttp\Client();
-            $client->get("http://localhost:3001/update");
+            $client->get("http://leadsocket.abdullajonsoliyev.uz:3001/update");
         } catch (\Throwable $th) {
             //throw $th;
         }
